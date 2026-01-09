@@ -1,0 +1,13 @@
+[project]
+ticketsPath = "tickets"
+id = "go-demo"
+name = "Go Demo"
+code = "GODEM"
+startNumber = 1
+counterFile = ".mdt-next"
+description = ""
+repository = ""
+path = "."
+
+[document]
+excludeFolders = [ "tickets" ]

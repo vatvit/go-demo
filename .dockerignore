@@ -1,0 +1,19 @@
+# Git
+.git/
+.gitignore
+
+# Build artifacts
+tmp/
+
+# Documentation
+*.md
+tickets/
+
+# IDE
+.idea/
+.vscode/
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
