@@ -14,7 +14,11 @@ import (
 func main() {
 	cfg := config.Load()
 
-	srv := server.New(cfg)
+	srv, err := server.New(cfg)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Failed to create server: %v\n", err)
+		os.Exit(1)
+	}
 
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()

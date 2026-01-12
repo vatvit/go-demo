@@ -1,6 +1,6 @@
 ---
 code: GODEM-005
-status: Proposed
+status: Implemented
 dateCreated: 2026-01-09T19:59:12.332Z
 type: Feature Enhancement
 priority: Medium

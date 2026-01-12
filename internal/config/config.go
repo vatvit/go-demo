@@ -8,6 +8,9 @@ import (
 type Config struct {
 	Port            string
 	ShutdownTimeout time.Duration
+	MongoURI        string
+	MongoDB         string
+	RedisAddr       string
 }
 
 func Load() *Config {
@@ -23,8 +26,26 @@ func Load() *Config {
 		}
 	}
 
+	mongoURI := os.Getenv("MONGO_URI")
+	if mongoURI == "" {
+		mongoURI = "mongodb://localhost:27017"
+	}
+
+	mongoDB := os.Getenv("MONGO_DB")
+	if mongoDB == "" {
+		mongoDB = "godemo"
+	}
+
+	redisAddr := os.Getenv("REDIS_ADDR")
+	if redisAddr == "" {
+		redisAddr = "localhost:6379"
+	}
+
 	return &Config{
 		Port:            port,
 		ShutdownTimeout: shutdownTimeout,
+		MongoURI:        mongoURI,
+		MongoDB:         mongoDB,
+		RedisAddr:       redisAddr,
 	}
 }

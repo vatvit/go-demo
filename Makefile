@@ -1,4 +1,4 @@
-.PHONY: build run test docker-build docker-run docker-stop clean bdd help
+.PHONY: build run test docker-build docker-run docker-stop clean bdd help up down logs clean-volumes
 
 # Variables
 IMAGE_NAME := go-demo
@@ -40,3 +40,19 @@ bdd: ## Run BDD tests (via Docker)
 
 bdd-build: ## Install BDD dependencies
 	docker run --rm -v $(PWD):/app -w /app golang:1.23-alpine go get github.com/cucumber/godog/cmd/godog@latest
+
+# Docker Compose targets
+up: ## Start all services with docker-compose
+	docker-compose up --build
+
+up-d: ## Start all services in background
+	docker-compose up --build -d
+
+down: ## Stop all services
+	docker-compose down
+
+logs: ## Follow logs from all services
+	docker-compose logs -f
+
+clean-volumes: ## Stop services and remove data volumes
+	docker-compose down -v

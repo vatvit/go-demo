@@ -1,6 +1,6 @@
 ---
 code: GODEM-004
-status: Proposed
+status: Implemented
 dateCreated: 2026-01-09T19:57:41.292Z
 type: Feature Enhancement
 priority: High

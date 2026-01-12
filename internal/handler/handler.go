@@ -1,11 +1,22 @@
 package handler
 
-import "net/http"
+import (
+	"net/http"
 
-type Handler struct{}
+	"github.com/vatvit/go-demo/internal/mongodb"
+	"github.com/vatvit/go-demo/internal/redis"
+)
 
-func New() *Handler {
-	return &Handler{}
+type Handler struct {
+	mongo *mongodb.Client
+	redis *redis.Client
+}
+
+func New(mongo *mongodb.Client, redis *redis.Client) *Handler {
+	return &Handler{
+		mongo: mongo,
+		redis: redis,
+	}
 }
 
 func (h *Handler) Routes() http.Handler {
